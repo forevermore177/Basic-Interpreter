@@ -19,8 +19,10 @@ std::optional<int> ParsedLine::getLine() { return line_number_; }
 
 void ParsedLine::setStatement(Statement* stmt) { statement_ = stmt; }
 
+// 临时读取
 Statement* ParsedLine::getStatement() const { return statement_; }
 
+// 上交所有权，负责生命周期管理
 Statement* ParsedLine::fetchStatement() {
   Statement* temp = statement_;
   statement_ = nullptr;
