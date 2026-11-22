@@ -57,7 +57,10 @@ int Program::getPC() const noexcept{
 }
 
 void Program::changePC(int line){
-    programCounter_ = line;
+    if (!recorder_.hasLine(line)){
+        throw BasicError("LINE NUMBER ERROR");
+    }
+    else programCounter_ = line;
 }
 
 void Program::programEnd(){
