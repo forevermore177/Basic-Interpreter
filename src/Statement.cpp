@@ -48,7 +48,7 @@ void StmtInput::execute(VarState& state, Program& program) const{
     while(std::getline(std::cin, input_line)){
         std::istringstream is(input_line);
         char leak;
-        if (is >> input_value && !(is.peek() == EOF)){
+        if (is >> input_value && (is.peek() == EOF)){
             state.setValue(varName, input_value);
             break;
         }
