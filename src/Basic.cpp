@@ -27,37 +27,17 @@ int main() {
       const Token* firstToken = tokens.peek();
       switch (firstToken->type) {
         case TokenType::RUN:
-          tokens.get();
-          if (!tokens.empty()) {
-            throw BasicError("SYNTAX ERROR");
-          }
           program.run();
           continue;
         case TokenType::LIST:
-          tokens.get();
-          if (!tokens.empty()) {
-            throw BasicError("SYNTAX ERROR");
-          }
           program.list();
           continue;
         case TokenType::CLEAR:
-          tokens.get();
-          if (!tokens.empty()) {
-            throw BasicError("SYNTAX ERROR");
-          }
           program.clear();
           continue;
         case TokenType::QUIT:
-          tokens.get();
-          if (!tokens.empty()) {
-            throw BasicError("SYNTAX ERROR");
-          }
           return 0;
         case TokenType::HELP:
-          tokens.get();
-          if (!tokens.empty()) {
-            throw BasicError("SYNTAX ERROR");
-          }
           std::cout << "The helping message is left to be done.Stay tuned.\n";
           continue;
         default:
