@@ -9,6 +9,7 @@ Program::Program(){
 void Program::resetAfterRun() noexcept{
     programCounter_ = -1;
     programEnd_ = false;
+    cur_changed = false;
 }
 
 void Program::addStmt(int line, Statement* stmt){
