@@ -11,7 +11,7 @@ class VarState;
 class Statement {
  public:
   explicit Statement(std::string source);
-  virtual ~Statement() = default;
+  virtual ~Statement() = default; // defaul:生成默认析构函数
 
   virtual void execute(VarState& state, Program& program) const = 0;
 
