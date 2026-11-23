@@ -20,6 +20,7 @@ int main() {
     }
     try {
       TokenStream tokens = lexer.tokenize(line);
+      if (tokens.empty()) continue;
       const Token* firstToken = tokens.peek();
       switch (firstToken->type) {
         case TokenType::RUN:
