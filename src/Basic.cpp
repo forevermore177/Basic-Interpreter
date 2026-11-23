@@ -65,6 +65,10 @@ int main() {
       ParsedLine parsed_ans = parser.parseLine(tokens, line);
       if (parsed_ans.getLine().has_value()){
         int line_number = parsed_ans.getLine().value();
+        if (line_number == 0){ // 疑似非法
+          throw BasicError("LINE NUMBER ERROR");
+          continue;
+        }
         if (parsed_ans.getStatement() == nullptr) { // 删除
           program.removeStmt(line_number);
         }
