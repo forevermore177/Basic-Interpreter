@@ -20,16 +20,17 @@ void Program::removeStmt(int line){
 }
 
 void Program::run(){
-    programEnd_ = false;
-    programCounter_ = recorder_.nextLine(-1);
+    resetAfterRun();
     try{
-        int preCounter = programCounter_;
+        programCounter_ = recorder_.nextLine(programCounter_);
         while (!programEnd_ && recorder_.hasLine(programCounter_)){
             recorder_.get(programCounter_)->execute(vars_, *this);
-            if (preCounter == programCounter_){
+            if (cur_changed){
+                cur_changed = false;
+            }
+            else{
                 programCounter_ = recorder_.nextLine(programCounter_);
             }
-            preCounter = programCounter_;
         }
     } catch (const BasicError& e){
         resetAfterRun();
@@ -60,7 +61,10 @@ void Program::changePC(int line){
     if (!recorder_.hasLine(line)){
         throw BasicError("LINE NUMBER ERROR");
     }
-    else programCounter_ = line;
+    else {
+        programCounter_ = line;
+        cur_changed = true;
+    }
 }
 
 void Program::programEnd(){

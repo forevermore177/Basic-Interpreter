@@ -30,5 +30,7 @@ class Program {
   int programCounter_;
   bool programEnd_;
 
+  bool cur_changed = false;
+
   void resetAfterRun() noexcept;
 };
