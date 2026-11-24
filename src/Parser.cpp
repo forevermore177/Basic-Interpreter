@@ -37,11 +37,7 @@ ParsedLine Parser::parseLine(TokenStream& tokens,
   const Token* firstToken = tokens.peek();
   if (firstToken && firstToken->type == TokenType::NUMBER) {
     // 解析行号
-    int parsedline = parseLiteral(firstToken);
-    if (parsedline == 0){// 疑似非法
-      throw BasicError("LINE NUMBER ERROR");
-    }
-    result.setLine(parsedline);
+    result.setLine(parseLiteral(firstToken));
     tokens.get();  // 消费行号token
 
     // 如果只有行号，表示删除该行

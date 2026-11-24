@@ -62,6 +62,9 @@ int main() {
         default:
           break;
       }
+      if (firstToken->type == TokenType::NUMBER && std::stoi(firstToken->text) == 0){
+        throw BasicError("LINE NUMBER ERROR");
+      }
       ParsedLine parsed_ans = parser.parseLine(tokens, line);
       if (parsed_ans.getLine().has_value()){
         int line_number = parsed_ans.getLine().value();
