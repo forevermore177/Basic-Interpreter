@@ -62,7 +62,7 @@ int main() {
         default:
           break;
       }
-      if (firstToken->type == TokenType::NUMBER && std::stoi(firstToken->text) == 0){
+      if (firstToken->type == TokenType::NUMBER && firstToken->text.find_first_not_of('0') == std::string::npos){
         throw BasicError("LINE NUMBER ERROR");
       }
       ParsedLine parsed_ans = parser.parseLine(tokens, line);
