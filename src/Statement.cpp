@@ -50,12 +50,14 @@ void StmtInput::execute(VarState& state, Program& program) const{
         char leak;
         if (is >> input_value && (is.peek() == EOF)){
             state.setValue(varName, input_value);
-            break;
+            return;
         }
         else {
             std::cout << "INVALID NUMBER\n ? ";
         }
     }
+    std::cout << "INVALID NUMBER\n";
+    program.programEnd();
 }
 
 // Goto
