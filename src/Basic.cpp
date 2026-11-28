@@ -53,11 +53,15 @@ int main() {
                     << "  [行号] END - 结束程序\n"
                     << "  [行号] GOTO <行号> - 跳转到指定行\n"
                     << "  [行号] IF <表达式1> <操作符> <表达式2> THEN <行号> - 条件跳转\n"
+                    << "  [行号] INDENT - 进入新的变量域\n"
+                    << "  [行号] DEDENT - 离开当前变量域\n"
                     << "\n"
                     << "立即执行指令 (不带行号):\n"
                     << "  LET <变量> = <表达式>\n"
                     << "  PRINT <表达式>\n"
-                    << "  INPUT <变量>\n";
+                    << "  INPUT <变量>\n"
+                    << "  INDENT\n"
+                    << "  DEDENT\n";
           continue;
         default:
           break;

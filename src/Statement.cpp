@@ -100,3 +100,15 @@ StmtEnd::StmtEnd(std::string s):Statement(s){}
 void StmtEnd::execute(VarState& state, Program& program) const{
     program.programEnd();
 }
+
+// Indent
+StmtIndent::StmtIndent(std::string s):Statement(s){}
+void StmtIndent::execute(VarState& state, Program& program) const{
+    state.enter();
+}
+
+// Dedent
+StmtDedent::StmtDedent(std::string s):Statement(s){}
+void StmtDedent::execute(VarState& state, Program& program) const{
+    state.leave();
+}
