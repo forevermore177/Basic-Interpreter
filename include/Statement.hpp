@@ -83,3 +83,17 @@ public:
   ~StmtEnd() override = default;
   void execute(VarState& state, Program& program) const override;
 };
+
+class StmtIndent: public Statement{
+public:
+  explicit StmtIndent(std::string s);
+  ~StmtIndent() override = default;
+  void execute(VarState& state, Program& program) const override;
+};
+
+class StmtDedent: public Statement{
+public:
+  explicit StmtDedent(std::string s);
+  ~StmtDedent() override = default;
+  void execute(VarState& state, Program& program) const override;
+};
